@@ -44,7 +44,7 @@ A RESTful API backend for an event scheduling application with advanced collabor
 -    created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
 - );
 
-### Usertoken tables
+### Usertoken table
 - CREATE TABLE user_tokens (
 -    id SERIAL PRIMARY KEY,
 -    user_id INTEGER NOT NULL REFERENCES users(id) ON DELETE CASCADE,
