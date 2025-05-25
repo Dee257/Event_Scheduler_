@@ -35,13 +35,24 @@ A RESTful API backend for an event scheduling application with advanced collabor
 
 ## DATABASE SCHEMA
 ### Users table
-- CREATE TABLE users (
+- CREATE TABLE user (
 -    id SERIAL PRIMARY KEY,
 -    username VARCHAR(80) UNIQUE NOT NULL,
 -    email VARCHAR(120) UNIQUE NOT NULL,
 -    password VARCHAR(200) NOT NULL,
 -    role VARCHAR(20) NOT NULL,
 -    created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP
+- );
+
+### Usertoken tables
+- CREATE TABLE user_tokens (
+-    id SERIAL PRIMARY KEY,
+-    user_id INTEGER NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+-    access_token TEXT NOT NULL,
+-    refresh_token TEXT NOT NULL,
+-    created_at TIMESTAMP WITH TIME ZONE DEFAULT CURRENT_TIMESTAMP,
+-    access_expires_at TIMESTAMP WITH TIME ZONE NOT NULL,
+-    refresh_expires_at TIMESTAMP WITH TIME ZONE NOT NULL
 - );
 
 ### Token Blocklist for JWT revocation
