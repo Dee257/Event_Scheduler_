@@ -1,0 +1,8 @@
+flask
+flask_sqlalchemy
+flask_marshmallow
+marshmallow-sqlalchemy
+flask-bcrypt
+flask-jwt-extended
+python-dotenv
+mysql-connector-python
