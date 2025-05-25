@@ -31,8 +31,10 @@ A RESTful API backend for an event scheduling application with advanced collabor
 - JWT_SECRET_KEY=jwtsecretkey
 - SQLALCHEMY_DATABASE_URI=mysql+mysqlconnector://username:password@localhost/event_db
 
-### DATABASE SCHEMA
--- Users table
+---
+
+## DATABASE SCHEMA
+# Users table
 CREATE TABLE users (
     id SERIAL PRIMARY KEY,
     username VARCHAR(80) UNIQUE NOT NULL,
