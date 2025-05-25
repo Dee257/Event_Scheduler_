@@ -312,13 +312,6 @@ components:
         '404':
           description: Event or version not found
 
-# components:
-#   securitySchemes:
-#     bearerAuth:
-#       type: http
-#       scheme: bearer
-#       bearerFormat: JWT
-
 websocket:
   description: |
     WebSocket events for real-time collaboration and notifications.
