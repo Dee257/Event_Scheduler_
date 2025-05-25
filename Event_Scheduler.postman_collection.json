@@ -1,0 +1,2020 @@
+{
+	"info": {
+		"_postman_id": "40dcc50a-ea72-416b-860c-63695a21776d",
+		"name": "Event_Scheduler",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "39051753"
+	},
+	"item": [
+		{
+			"name": "Authentication",
+			"item": [
+				{
+					"name": "Owner",
+					"item": [
+						{
+							"name": "Register",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTc0ODE2MTEwNSwianRpIjoiYzY1MTM3M2YtZmQzMi00Y2I2LTkzYTctMTYwYTAzM2YxODY2IiwidHlwZSI6ImFjY2VzcyIsInN1YiI6IjciLCJuYmYiOjE3NDgxNjExMDUsImNzcmYiOiIzMWNlZGQ1OC1iZmI4LTQ1NzYtYmRlNi1kOTQ2NjY5OGY5OTUiLCJleHAiOjE3NDgxNjQ3MDUsInJvbGUiOiJPd25lciJ9.n8Tk9jQ0Rg66NXNsqN7IBk1ejPDgmSCOLwKXeOWmpW4",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"username\":\"Smith\",\r\n  \"email\":\"smith@example.com\",\r\n  \"password\":\"smith123\",\r\n  \"role\":\"Owner\"\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1:5000/api/auth/register",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "5000",
+									"path": [
+										"api",
+										"auth",
+										"register"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Login",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"username\":\"Smith\",\r\n  \"email\":\"smith@example.com\",\r\n  \"password\":\"smith123\",\r\n  \"role\":\"Owner\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1:5000/api/auth/login",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "5000",
+									"path": [
+										"api",
+										"auth",
+										"login"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Refresh",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTc0ODE2NDI1MywianRpIjoiOGMwMGZhOTAtMmIzYi00N2U4LWI0ZjYtNzgwMWI4ZjkxZmQ2IiwidHlwZSI6InJlZnJlc2giLCJzdWIiOiIxMCIsIm5iZiI6MTc0ODE2NDI1MywiY3NyZiI6ImZkOWM3NmRjLTBmMmItNGRkZi04ODNkLWU3ZGU5MWIxZGZiNyIsImV4cCI6MTc1MDc1NjI1Mywicm9sZSI6Ik93bmVyIn0.qQrRlt3tLtuD9ydOePQYj2ALkbNUY8lzy_B_jQ5JyU4",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://127.0.0.1:5000/api/auth/refresh",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "5000",
+									"path": [
+										"api",
+										"auth",
+										"refresh"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Logout",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTc0ODE3NzMxNiwianRpIjoiMDU3NGRkOGItZjc4ZS00MThhLWE4ZWMtNDgwOGJjNzEyYmIwIiwidHlwZSI6InJlZnJlc2giLCJzdWIiOiIxMCIsIm5iZiI6MTc0ODE3NzMxNiwiY3NyZiI6ImUyZWUzOTkyLTg1NWUtNDFlZi1hY2YwLTdiMGVjZGY4OTIyZCIsImV4cCI6MTc1MDc2OTMxNiwicm9sZSI6Ik93bmVyIn0.p0MLNkhID0XE6d7QKLemW1SYu2ryVLc5ksmpkjwfoII",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://127.0.0.1:5000/api/auth/logout",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "5000",
+									"path": [
+										"api",
+										"auth",
+										"logout"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Editor",
+					"item": [
+						{
+							"name": "Register",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"username\":\"Dave\",\r\n  \"email\":\"dave@example.com\",\r\n  \"password\":\"dave123\",\r\n  \"role\":\"Editor\"\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1:5000/api/auth/register",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "5000",
+									"path": [
+										"api",
+										"auth",
+										"register"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Login",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"username\":\"Dave\",\r\n  \"email\":\"dave@example.com\",\r\n  \"password\":\"dave123\",\r\n  \"role\":\"Editor\"\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1:5000/api/auth/login",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "5000",
+									"path": [
+										"api",
+										"auth",
+										"login"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Refresh",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTc0ODE2ODQwNSwianRpIjoiYzY0NmIwNzUtNGQ2Zi00OWRmLWExMjEtMDJkODkxZjE2MGJjIiwidHlwZSI6InJlZnJlc2giLCJzdWIiOiIxMSIsIm5iZiI6MTc0ODE2ODQwNSwiY3NyZiI6ImU5ZTYzZjg0LTFlZDgtNGE4Yi05MmUyLTBjNjk3NmVkMjdjMCIsImV4cCI6MTc1MDc2MDQwNSwicm9sZSI6IkVkaXRvciJ9.XQjCStIj91fF1TSALOO_MF8jpg5xGpjJdZaO4QdeMH8",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://127.0.0.1:5000/api/auth/refresh",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "5000",
+									"path": [
+										"api",
+										"auth",
+										"refresh"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Logout",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTc0ODE2ODUyNiwianRpIjoiZjc4YmQxOTMtYjAyYS00ZmQ0LWE3MzItYjUxMmNjZTc4Nzc5IiwidHlwZSI6InJlZnJlc2giLCJzdWIiOiIxMSIsIm5iZiI6MTc0ODE2ODUyNiwiY3NyZiI6ImZjMDQzZmMzLTY5MjUtNGJlNS1iNmIzLTMzZDNlMDMzZDQwZiIsImV4cCI6MTc1MDc2MDUyNiwicm9sZSI6IkVkaXRvciJ9.r-V1ogvGxB3e12h_NsVaFKPAlGOecrDv7oDPfjX-TQA",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://127.0.0.1:5000/api/auth/logout",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "5000",
+									"path": [
+										"api",
+										"auth",
+										"logout"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Viewer",
+					"item": [
+						{
+							"name": "Register",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"username\":\"Steve\",\r\n  \"email\":\"steve@example.com\",\r\n  \"password\":\"steve123\",\r\n  \"role\":\"Viewer\"\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1:5000/api/auth/register",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "5000",
+									"path": [
+										"api",
+										"auth",
+										"register"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Login",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"username\":\"Steve\",\r\n  \"email\":\"steve@example.com\",\r\n  \"password\":\"steve123\",\r\n  \"role\":\"Viewer\"\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1:5000/api/auth/login",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "5000",
+									"path": [
+										"api",
+										"auth",
+										"login"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Refresh",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTc0ODE2ODY1NSwianRpIjoiYmY1NTg1NWEtY2UxNy00MGEyLWFjNDktMTM2M2EzYTJlMWFmIiwidHlwZSI6InJlZnJlc2giLCJzdWIiOiIxMiIsIm5iZiI6MTc0ODE2ODY1NSwiY3NyZiI6Ijc5ZjMzNGRjLTUwMjYtNGNkNC04NTNiLWRkNWYwNTA5OTJkZiIsImV4cCI6MTc1MDc2MDY1NSwicm9sZSI6IlZpZXdlciJ9.pODDfzKfVyUerTlNiAuPYfbkfdbQY08mCIiavQDJw-U",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://127.0.0.1:5000/api/auth/refresh",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "5000",
+									"path": [
+										"api",
+										"auth",
+										"refresh"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Logout",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTc0ODE2ODcyNywianRpIjoiNTkyMjg1YjgtOTcxOC00OWNjLWIwMDUtYTRmNDZkMDU2ZTA5IiwidHlwZSI6InJlZnJlc2giLCJzdWIiOiIxMiIsIm5iZiI6MTc0ODE2ODcyNywiY3NyZiI6ImRhMjFmN2RhLTQzOTEtNDA0Mi1hNTRmLTY4N2E0NDkwYWJmMSIsImV4cCI6MTc1MDc2MDcyNywicm9sZSI6IlZpZXdlciJ9.tUVzxrQwCZ9Uy_MKf2wAQwX2RheW54dRPoM63I1Cgg0",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://127.0.0.1:5000/api/auth/logout",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "5000",
+									"path": [
+										"api",
+										"auth",
+										"logout"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Event Management",
+			"item": [
+				{
+					"name": "Owner",
+					"item": [
+						{
+							"name": "Create Event",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTc0ODE3NzMxNiwianRpIjoiYmM3NzJmZjQtZjMxNC00NzY2LWI5MGEtN2MwZmNmZjkzNmI5IiwidHlwZSI6ImFjY2VzcyIsInN1YiI6IjEwIiwibmJmIjoxNzQ4MTc3MzE2LCJjc3JmIjoiYjVhMzg1NjUtNmQ2Yy00NzIwLWE4OGMtMzI0NzY5MWM1M2ZlIiwiZXhwIjoxNzQ4MTgwOTE2LCJyb2xlIjoiT3duZXIifQ.3tBdISNnks6AHmFbUf_4b26EPDC8bO6e7BojC3XDgCo",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"title\": \"Team Meeting \",\r\n  \"description\": \"Discuss project status\",\r\n  \"start_time\": \"2025-06-01T10:00:00\",\r\n  \"end_time\": \"2025-06-01T11:00:00\",\r\n  \"location\": \"Zoom\",\r\n  \"is_recurring\": true,\r\n  \"recurrence_pattern\": \"Weekly\"\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1:5000/api/events",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "5000",
+									"path": [
+										"api",
+										"events"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "List Events",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTc0ODE3NzMxNiwianRpIjoiYmM3NzJmZjQtZjMxNC00NzY2LWI5MGEtN2MwZmNmZjkzNmI5IiwidHlwZSI6ImFjY2VzcyIsInN1YiI6IjEwIiwibmJmIjoxNzQ4MTc3MzE2LCJjc3JmIjoiYjVhMzg1NjUtNmQ2Yy00NzIwLWE4OGMtMzI0NzY5MWM1M2ZlIiwiZXhwIjoxNzQ4MTgwOTE2LCJyb2xlIjoiT3duZXIifQ.3tBdISNnks6AHmFbUf_4b26EPDC8bO6e7BojC3XDgCo",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://127.0.0.1:5000/api/events",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "5000",
+									"path": [
+										"api",
+										"events"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Event by id",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTc0ODE3NzMxNiwianRpIjoiYmM3NzJmZjQtZjMxNC00NzY2LWI5MGEtN2MwZmNmZjkzNmI5IiwidHlwZSI6ImFjY2VzcyIsInN1YiI6IjEwIiwibmJmIjoxNzQ4MTc3MzE2LCJjc3JmIjoiYjVhMzg1NjUtNmQ2Yy00NzIwLWE4OGMtMzI0NzY5MWM1M2ZlIiwiZXhwIjoxNzQ4MTgwOTE2LCJyb2xlIjoiT3duZXIifQ.3tBdISNnks6AHmFbUf_4b26EPDC8bO6e7BojC3XDgCo",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://127.0.0.1:5000/api/events/51",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "5000",
+									"path": [
+										"api",
+										"events",
+										"51"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update an event by id",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTc0ODE3NzMxNiwianRpIjoiYmM3NzJmZjQtZjMxNC00NzY2LWI5MGEtN2MwZmNmZjkzNmI5IiwidHlwZSI6ImFjY2VzcyIsInN1YiI6IjEwIiwibmJmIjoxNzQ4MTc3MzE2LCJjc3JmIjoiYjVhMzg1NjUtNmQ2Yy00NzIwLWE4OGMtMzI0NzY5MWM1M2ZlIiwiZXhwIjoxNzQ4MTgwOTE2LCJyb2xlIjoiT3duZXIifQ.3tBdISNnks6AHmFbUf_4b26EPDC8bO6e7BojC3XDgCo",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"title\": \"Updated Teams Meeting\",\r\n  \"start_time\": \"2025-06-01T12:15:00\",\r\n  \"end_time\": \"2025-06-01T13:30:00\"\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1:5000/api/events/51",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "5000",
+									"path": [
+										"api",
+										"events",
+										"51"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete an event by ID",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTc0ODE3NzMxNiwianRpIjoiYmM3NzJmZjQtZjMxNC00NzY2LWI5MGEtN2MwZmNmZjkzNmI5IiwidHlwZSI6ImFjY2VzcyIsInN1YiI6IjEwIiwibmJmIjoxNzQ4MTc3MzE2LCJjc3JmIjoiYjVhMzg1NjUtNmQ2Yy00NzIwLWE4OGMtMzI0NzY5MWM1M2ZlIiwiZXhwIjoxNzQ4MTgwOTE2LCJyb2xlIjoiT3duZXIifQ.3tBdISNnks6AHmFbUf_4b26EPDC8bO6e7BojC3XDgCo",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://127.0.0.1:5000/api/events/51",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "5000",
+									"path": [
+										"api",
+										"events",
+										"51"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create multiple events in a single request",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTc0ODE3NzMxNiwianRpIjoiYmM3NzJmZjQtZjMxNC00NzY2LWI5MGEtN2MwZmNmZjkzNmI5IiwidHlwZSI6ImFjY2VzcyIsInN1YiI6IjEwIiwibmJmIjoxNzQ4MTc3MzE2LCJjc3JmIjoiYjVhMzg1NjUtNmQ2Yy00NzIwLWE4OGMtMzI0NzY5MWM1M2ZlIiwiZXhwIjoxNzQ4MTgwOTE2LCJyb2xlIjoiT3duZXIifQ.3tBdISNnks6AHmFbUf_4b26EPDC8bO6e7BojC3XDgCo",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "[\r\n  {\r\n    \"title\": \"New Meeting 1\",\r\n    \"start_time\": \"2025-06-05T09:00:00\",\r\n    \"end_time\": \"2025-06-05T10:00:00\",\r\n    \"description\": \"Batch event 1\",\r\n    \"location\": \"Office\"\r\n  },\r\n  {\r\n    \"title\": \"New Meeting 2\",\r\n    \"start_time\": \"2025-06-06T13:00:00\",\r\n    \"end_time\": \"2025-06-06T14:00:00\",\r\n    \"description\": \"Batch event 2\",\r\n    \"location\": \"Gmail\"\r\n  }\r\n]\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1:5000/api/events/batch",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "5000",
+									"path": [
+										"api",
+										"events",
+										"batch"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Editor",
+					"item": [
+						{
+							"name": "List Events",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTc0ODE2ODkyNSwianRpIjoiZDQzZjU0MmItNTRkNS00MzBiLThjZWEtYjY0M2I4OTMyYmQ1IiwidHlwZSI6ImFjY2VzcyIsInN1YiI6IjExIiwibmJmIjoxNzQ4MTY4OTI1LCJjc3JmIjoiMzE2YjNmNWUtZmM1ZS00YjMxLWI1MWYtNWE2NGE4MzUwNzUxIiwiZXhwIjoxNzQ4MTcyNTI1LCJyb2xlIjoiRWRpdG9yIn0.oHeWVZ4bAQRZ1qSxg_nHyYi5iRCHXc7iHS5wuiony64",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://127.0.0.1:5000/api/events",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "5000",
+									"path": [
+										"api",
+										"events"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Event by id",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTc0ODE2ODkyNSwianRpIjoiZDQzZjU0MmItNTRkNS00MzBiLThjZWEtYjY0M2I4OTMyYmQ1IiwidHlwZSI6ImFjY2VzcyIsInN1YiI6IjExIiwibmJmIjoxNzQ4MTY4OTI1LCJjc3JmIjoiMzE2YjNmNWUtZmM1ZS00YjMxLWI1MWYtNWE2NGE4MzUwNzUxIiwiZXhwIjoxNzQ4MTcyNTI1LCJyb2xlIjoiRWRpdG9yIn0.oHeWVZ4bAQRZ1qSxg_nHyYi5iRCHXc7iHS5wuiony64",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://127.0.0.1:5000/api/events/55",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "5000",
+									"path": [
+										"api",
+										"events",
+										"55"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update an event by id",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTc0ODE2ODkyNSwianRpIjoiZDQzZjU0MmItNTRkNS00MzBiLThjZWEtYjY0M2I4OTMyYmQ1IiwidHlwZSI6ImFjY2VzcyIsInN1YiI6IjExIiwibmJmIjoxNzQ4MTY4OTI1LCJjc3JmIjoiMzE2YjNmNWUtZmM1ZS00YjMxLWI1MWYtNWE2NGE4MzUwNzUxIiwiZXhwIjoxNzQ4MTcyNTI1LCJyb2xlIjoiRWRpdG9yIn0.oHeWVZ4bAQRZ1qSxg_nHyYi5iRCHXc7iHS5wuiony64",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"title\": \"Updated New Meeting\",\r\n  \"start_time\": \"2025-06-01T10:30:00\",\r\n  \"end_time\": \"2025-06-01T11:30:00\"\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1:5000/api/events/55",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "5000",
+									"path": [
+										"api",
+										"events",
+										"55"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete an event by ID",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTc0ODE2ODkyNSwianRpIjoiZDQzZjU0MmItNTRkNS00MzBiLThjZWEtYjY0M2I4OTMyYmQ1IiwidHlwZSI6ImFjY2VzcyIsInN1YiI6IjExIiwibmJmIjoxNzQ4MTY4OTI1LCJjc3JmIjoiMzE2YjNmNWUtZmM1ZS00YjMxLWI1MWYtNWE2NGE4MzUwNzUxIiwiZXhwIjoxNzQ4MTcyNTI1LCJyb2xlIjoiRWRpdG9yIn0.oHeWVZ4bAQRZ1qSxg_nHyYi5iRCHXc7iHS5wuiony64",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://127.0.0.1:5000/api/events/25",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "5000",
+									"path": [
+										"api",
+										"events",
+										"25"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create Event",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTc0ODE3NzMxNiwianRpIjoiYmM3NzJmZjQtZjMxNC00NzY2LWI5MGEtN2MwZmNmZjkzNmI5IiwidHlwZSI6ImFjY2VzcyIsInN1YiI6IjEwIiwibmJmIjoxNzQ4MTc3MzE2LCJjc3JmIjoiYjVhMzg1NjUtNmQ2Yy00NzIwLWE4OGMtMzI0NzY5MWM1M2ZlIiwiZXhwIjoxNzQ4MTgwOTE2LCJyb2xlIjoiT3duZXIifQ.3tBdISNnks6AHmFbUf_4b26EPDC8bO6e7BojC3XDgCo",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"title\": \"Team 1 Meeting \",\r\n  \"description\": \"Discuss project status\",\r\n  \"start_time\": \"2025-06-01T10:00:00\",\r\n  \"end_time\": \"2025-06-01T11:00:00\",\r\n  \"location\": \"Zoom\",\r\n  \"is_recurring\": true,\r\n  \"recurrence_pattern\": \"Weekly\"\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1:5000/api/events",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "5000",
+									"path": [
+										"api",
+										"events"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create multiple events in a single request",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTc0ODE3NzMxNiwianRpIjoiYmM3NzJmZjQtZjMxNC00NzY2LWI5MGEtN2MwZmNmZjkzNmI5IiwidHlwZSI6ImFjY2VzcyIsInN1YiI6IjEwIiwibmJmIjoxNzQ4MTc3MzE2LCJjc3JmIjoiYjVhMzg1NjUtNmQ2Yy00NzIwLWE4OGMtMzI0NzY5MWM1M2ZlIiwiZXhwIjoxNzQ4MTgwOTE2LCJyb2xlIjoiT3duZXIifQ.3tBdISNnks6AHmFbUf_4b26EPDC8bO6e7BojC3XDgCo",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "[\r\n  {\r\n    \"title\": \"New Meeting 11\",\r\n    \"start_time\": \"2025-06-05T09:00:00\",\r\n    \"end_time\": \"2025-06-05T10:00:00\",\r\n    \"description\": \"Batch event 1\",\r\n    \"location\": \"Office\"\r\n  },\r\n  {\r\n    \"title\": \"New Meeting 21\",\r\n    \"start_time\": \"2025-06-06T13:00:00\",\r\n    \"end_time\": \"2025-06-06T14:00:00\",\r\n    \"description\": \"Batch event 2\",\r\n    \"location\": \"Gmail\"\r\n  }\r\n]\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1:5000/api/events/batch",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "5000",
+									"path": [
+										"api",
+										"events",
+										"batch"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Viewer",
+					"item": [
+						{
+							"name": "List Events",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTc0ODE3NDQwMywianRpIjoiNzE4MDY0NTQtNjUwNi00MWU2LTkwNjMtYjgzYzBlODQwNWRjIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6IjEyIiwibmJmIjoxNzQ4MTc0NDAzLCJjc3JmIjoiMDE2NDY5YjItMmZkNS00NzlhLTkzMDYtN2YyY2FhODk1Y2JjIiwiZXhwIjoxNzQ4MTc4MDAzLCJyb2xlIjoiVmlld2VyIn0.BWu0r7stEcQW7zUbd8UGTLNAA2emmvdOtvkwNptlMaI",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://127.0.0.1:5000/api/events",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "5000",
+									"path": [
+										"api",
+										"events"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get Event by id",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTc0ODE3NDQwMywianRpIjoiNzE4MDY0NTQtNjUwNi00MWU2LTkwNjMtYjgzYzBlODQwNWRjIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6IjEyIiwibmJmIjoxNzQ4MTc0NDAzLCJjc3JmIjoiMDE2NDY5YjItMmZkNS00NzlhLTkzMDYtN2YyY2FhODk1Y2JjIiwiZXhwIjoxNzQ4MTc4MDAzLCJyb2xlIjoiVmlld2VyIn0.BWu0r7stEcQW7zUbd8UGTLNAA2emmvdOtvkwNptlMaI",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://127.0.0.1:5000/api/events/53",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "5000",
+									"path": [
+										"api",
+										"events",
+										"53"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update an event by id",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTc0ODE3NDQwMywianRpIjoiNzE4MDY0NTQtNjUwNi00MWU2LTkwNjMtYjgzYzBlODQwNWRjIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6IjEyIiwibmJmIjoxNzQ4MTc0NDAzLCJjc3JmIjoiMDE2NDY5YjItMmZkNS00NzlhLTkzMDYtN2YyY2FhODk1Y2JjIiwiZXhwIjoxNzQ4MTc4MDAzLCJyb2xlIjoiVmlld2VyIn0.BWu0r7stEcQW7zUbd8UGTLNAA2emmvdOtvkwNptlMaI",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"title\": \"Updated New Meeting\",\r\n  \"start_time\": \"2025-06-01T10:30:00\",\r\n  \"end_time\": \"2025-06-01T11:30:00\"\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1:5000/api/events/55",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "5000",
+									"path": [
+										"api",
+										"events",
+										"55"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Delete an event by ID",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTc0ODE3NDQwMywianRpIjoiNzE4MDY0NTQtNjUwNi00MWU2LTkwNjMtYjgzYzBlODQwNWRjIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6IjEyIiwibmJmIjoxNzQ4MTc0NDAzLCJjc3JmIjoiMDE2NDY5YjItMmZkNS00NzlhLTkzMDYtN2YyY2FhODk1Y2JjIiwiZXhwIjoxNzQ4MTc4MDAzLCJyb2xlIjoiVmlld2VyIn0.BWu0r7stEcQW7zUbd8UGTLNAA2emmvdOtvkwNptlMaI",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://127.0.0.1:5000/api/events/25",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "5000",
+									"path": [
+										"api",
+										"events",
+										"25"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create event",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTc0ODE3NzMxNiwianRpIjoiYmM3NzJmZjQtZjMxNC00NzY2LWI5MGEtN2MwZmNmZjkzNmI5IiwidHlwZSI6ImFjY2VzcyIsInN1YiI6IjEwIiwibmJmIjoxNzQ4MTc3MzE2LCJjc3JmIjoiYjVhMzg1NjUtNmQ2Yy00NzIwLWE4OGMtMzI0NzY5MWM1M2ZlIiwiZXhwIjoxNzQ4MTgwOTE2LCJyb2xlIjoiT3duZXIifQ.3tBdISNnks6AHmFbUf_4b26EPDC8bO6e7BojC3XDgCo",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"title\": \"Team 1 Meeting \",\r\n  \"description\": \"Discuss project status\",\r\n  \"start_time\": \"2025-06-01T10:00:00\",\r\n  \"end_time\": \"2025-06-01T11:00:00\",\r\n  \"location\": \"Zoom\",\r\n  \"is_recurring\": true,\r\n  \"recurrence_pattern\": \"Weekly\"\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1:5000/api/events",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "5000",
+									"path": [
+										"api",
+										"events"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create multiple events in a single request",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTc0ODE3NzMxNiwianRpIjoiYmM3NzJmZjQtZjMxNC00NzY2LWI5MGEtN2MwZmNmZjkzNmI5IiwidHlwZSI6ImFjY2VzcyIsInN1YiI6IjEwIiwibmJmIjoxNzQ4MTc3MzE2LCJjc3JmIjoiYjVhMzg1NjUtNmQ2Yy00NzIwLWE4OGMtMzI0NzY5MWM1M2ZlIiwiZXhwIjoxNzQ4MTgwOTE2LCJyb2xlIjoiT3duZXIifQ.3tBdISNnks6AHmFbUf_4b26EPDC8bO6e7BojC3XDgCo",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "[\r\n  {\r\n    \"title\": \"New Meeting for discussion\",\r\n    \"start_time\": \"2025-06-05T09:00:00\",\r\n    \"end_time\": \"2025-06-05T10:00:00\",\r\n    \"description\": \"Batch event 1\",\r\n    \"location\": \"Office\"\r\n  },\r\n  {\r\n    \"title\": \"Teams Meeting for discussion\",\r\n    \"start_time\": \"2025-06-06T13:00:00\",\r\n    \"end_time\": \"2025-06-06T14:00:00\",\r\n    \"description\": \"Batch event 2\",\r\n    \"location\": \"Gmail\"\r\n  }\r\n]\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1:5000/api/events/batch",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "5000",
+									"path": [
+										"api",
+										"events",
+										"batch"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Collaboration",
+			"item": [
+				{
+					"name": "Owner",
+					"item": [
+						{
+							"name": "Share an event",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTc0ODE3NzMxNiwianRpIjoiYmM3NzJmZjQtZjMxNC00NzY2LWI5MGEtN2MwZmNmZjkzNmI5IiwidHlwZSI6ImFjY2VzcyIsInN1YiI6IjEwIiwibmJmIjoxNzQ4MTc3MzE2LCJjc3JmIjoiYjVhMzg1NjUtNmQ2Yy00NzIwLWE4OGMtMzI0NzY5MWM1M2ZlIiwiZXhwIjoxNzQ4MTgwOTE2LCJyb2xlIjoiT3duZXIifQ.3tBdISNnks6AHmFbUf_4b26EPDC8bO6e7BojC3XDgCo",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"users\":[\r\n        {\r\n            \"user_id\":\"9\",\r\n            \"permission\":\"Owner\"\r\n        },\r\n        {\r\n            \"user_id\":\"6\",\r\n            \"permission\":\"Viewer\"\r\n        }\r\n    ]\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1:5000/api/events/54/share",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "5000",
+									"path": [
+										"api",
+										"events",
+										"54",
+										"share"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "List all permissions for an event",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTc0ODE3NzMxNiwianRpIjoiYmM3NzJmZjQtZjMxNC00NzY2LWI5MGEtN2MwZmNmZjkzNmI5IiwidHlwZSI6ImFjY2VzcyIsInN1YiI6IjEwIiwibmJmIjoxNzQ4MTc3MzE2LCJjc3JmIjoiYjVhMzg1NjUtNmQ2Yy00NzIwLWE4OGMtMzI0NzY5MWM1M2ZlIiwiZXhwIjoxNzQ4MTgwOTE2LCJyb2xlIjoiT3duZXIifQ.3tBdISNnks6AHmFbUf_4b26EPDC8bO6e7BojC3XDgCo",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://127.0.0.1:5000/api/events/52/permissions",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "5000",
+									"path": [
+										"api",
+										"events",
+										"52",
+										"permissions"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update permissions for a user",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTc0ODE3NzMxNiwianRpIjoiYmM3NzJmZjQtZjMxNC00NzY2LWI5MGEtN2MwZmNmZjkzNmI5IiwidHlwZSI6ImFjY2VzcyIsInN1YiI6IjEwIiwibmJmIjoxNzQ4MTc3MzE2LCJjc3JmIjoiYjVhMzg1NjUtNmQ2Yy00NzIwLWE4OGMtMzI0NzY5MWM1M2ZlIiwiZXhwIjoxNzQ4MTgwOTE2LCJyb2xlIjoiT3duZXIifQ.3tBdISNnks6AHmFbUf_4b26EPDC8bO6e7BojC3XDgCo",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"role\": \"Owner\"\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1:5000/api/events/14/permissions/6",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "5000",
+									"path": [
+										"api",
+										"events",
+										"14",
+										"permissions",
+										"6"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Remove access for a user",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTc0ODE3NzMxNiwianRpIjoiYmM3NzJmZjQtZjMxNC00NzY2LWI5MGEtN2MwZmNmZjkzNmI5IiwidHlwZSI6ImFjY2VzcyIsInN1YiI6IjEwIiwibmJmIjoxNzQ4MTc3MzE2LCJjc3JmIjoiYjVhMzg1NjUtNmQ2Yy00NzIwLWE4OGMtMzI0NzY5MWM1M2ZlIiwiZXhwIjoxNzQ4MTgwOTE2LCJyb2xlIjoiT3duZXIifQ.3tBdISNnks6AHmFbUf_4b26EPDC8bO6e7BojC3XDgCo",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://127.0.0.1:5000/api/events/14/permissions/6",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "5000",
+									"path": [
+										"api",
+										"events",
+										"14",
+										"permissions",
+										"6"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Editor",
+					"item": [
+						{
+							"name": "Share an event",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTc0ODE2ODkyNSwianRpIjoiZDQzZjU0MmItNTRkNS00MzBiLThjZWEtYjY0M2I4OTMyYmQ1IiwidHlwZSI6ImFjY2VzcyIsInN1YiI6IjExIiwibmJmIjoxNzQ4MTY4OTI1LCJjc3JmIjoiMzE2YjNmNWUtZmM1ZS00YjMxLWI1MWYtNWE2NGE4MzUwNzUxIiwiZXhwIjoxNzQ4MTcyNTI1LCJyb2xlIjoiRWRpdG9yIn0.oHeWVZ4bAQRZ1qSxg_nHyYi5iRCHXc7iHS5wuiony64",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"users\":[\r\n        {\r\n            \"user_id\":\"9\",\r\n            \"permission\":\"Editor\"\r\n        },\r\n        {\r\n            \"user_id\":\"6\",\r\n            \"permission\":\"Viewer\"\r\n        }\r\n    ]\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1:5000/api/events/51/share",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "5000",
+									"path": [
+										"api",
+										"events",
+										"51",
+										"share"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "List all permissions for an event",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTc0ODE2ODkyNSwianRpIjoiZDQzZjU0MmItNTRkNS00MzBiLThjZWEtYjY0M2I4OTMyYmQ1IiwidHlwZSI6ImFjY2VzcyIsInN1YiI6IjExIiwibmJmIjoxNzQ4MTY4OTI1LCJjc3JmIjoiMzE2YjNmNWUtZmM1ZS00YjMxLWI1MWYtNWE2NGE4MzUwNzUxIiwiZXhwIjoxNzQ4MTcyNTI1LCJyb2xlIjoiRWRpdG9yIn0.oHeWVZ4bAQRZ1qSxg_nHyYi5iRCHXc7iHS5wuiony64",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://127.0.0.1:5000/api/events/51/permissions",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "5000",
+									"path": [
+										"api",
+										"events",
+										"51",
+										"permissions"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update permissions for a user",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTc0ODE2ODkyNSwianRpIjoiZDQzZjU0MmItNTRkNS00MzBiLThjZWEtYjY0M2I4OTMyYmQ1IiwidHlwZSI6ImFjY2VzcyIsInN1YiI6IjExIiwibmJmIjoxNzQ4MTY4OTI1LCJjc3JmIjoiMzE2YjNmNWUtZmM1ZS00YjMxLWI1MWYtNWE2NGE4MzUwNzUxIiwiZXhwIjoxNzQ4MTcyNTI1LCJyb2xlIjoiRWRpdG9yIn0.oHeWVZ4bAQRZ1qSxg_nHyYi5iRCHXc7iHS5wuiony64",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"role\": \"Editor\"\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1:5000/api/events/51/permissions/9",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "5000",
+									"path": [
+										"api",
+										"events",
+										"51",
+										"permissions",
+										"9"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Remove access for a user",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTc0ODE2ODkyNSwianRpIjoiZDQzZjU0MmItNTRkNS00MzBiLThjZWEtYjY0M2I4OTMyYmQ1IiwidHlwZSI6ImFjY2VzcyIsInN1YiI6IjExIiwibmJmIjoxNzQ4MTY4OTI1LCJjc3JmIjoiMzE2YjNmNWUtZmM1ZS00YjMxLWI1MWYtNWE2NGE4MzUwNzUxIiwiZXhwIjoxNzQ4MTcyNTI1LCJyb2xlIjoiRWRpdG9yIn0.oHeWVZ4bAQRZ1qSxg_nHyYi5iRCHXc7iHS5wuiony64",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://127.0.0.1:5000/api/events/14/permissions/6",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "5000",
+									"path": [
+										"api",
+										"events",
+										"14",
+										"permissions",
+										"6"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Viewer",
+					"item": [
+						{
+							"name": "Share an event",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTc0ODE2OTk0MywianRpIjoiZmYxYzZlMmUtNjllYS00NzA0LTk4YWUtNGZmOTAyNjVhYWU4IiwidHlwZSI6ImFjY2VzcyIsInN1YiI6IjEyIiwibmJmIjoxNzQ4MTY5OTQzLCJjc3JmIjoiNmI4MmJkMDUtZDE0My00Yzk4LThmNjktOWVmNmM1YTMxM2I3IiwiZXhwIjoxNzQ4MTczNTQzLCJyb2xlIjoiVmlld2VyIn0.8vdTcfyj02wRI1n0r7sV4lUlbWGZC8cdZRVcmohaHhQ",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://127.0.0.1:5000/api/events/51/share",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "5000",
+									"path": [
+										"api",
+										"events",
+										"51",
+										"share"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "List all permissions for an event",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTc0ODE2OTk0MywianRpIjoiZmYxYzZlMmUtNjllYS00NzA0LTk4YWUtNGZmOTAyNjVhYWU4IiwidHlwZSI6ImFjY2VzcyIsInN1YiI6IjEyIiwibmJmIjoxNzQ4MTY5OTQzLCJjc3JmIjoiNmI4MmJkMDUtZDE0My00Yzk4LThmNjktOWVmNmM1YTMxM2I3IiwiZXhwIjoxNzQ4MTczNTQzLCJyb2xlIjoiVmlld2VyIn0.8vdTcfyj02wRI1n0r7sV4lUlbWGZC8cdZRVcmohaHhQ",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://127.0.0.1:5000/api/events/51/permissions",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "5000",
+									"path": [
+										"api",
+										"events",
+										"51",
+										"permissions"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Remove access for a user",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTc0ODE2OTk0MywianRpIjoiZmYxYzZlMmUtNjllYS00NzA0LTk4YWUtNGZmOTAyNjVhYWU4IiwidHlwZSI6ImFjY2VzcyIsInN1YiI6IjEyIiwibmJmIjoxNzQ4MTY5OTQzLCJjc3JmIjoiNmI4MmJkMDUtZDE0My00Yzk4LThmNjktOWVmNmM1YTMxM2I3IiwiZXhwIjoxNzQ4MTczNTQzLCJyb2xlIjoiVmlld2VyIn0.8vdTcfyj02wRI1n0r7sV4lUlbWGZC8cdZRVcmohaHhQ",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://127.0.0.1:5000/api/events/14/permissions/6",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "5000",
+									"path": [
+										"api",
+										"events",
+										"14",
+										"permissions",
+										"6"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update permissions for a user",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTc0ODE2OTk0MywianRpIjoiZmYxYzZlMmUtNjllYS00NzA0LTk4YWUtNGZmOTAyNjVhYWU4IiwidHlwZSI6ImFjY2VzcyIsInN1YiI6IjEyIiwibmJmIjoxNzQ4MTY5OTQzLCJjc3JmIjoiNmI4MmJkMDUtZDE0My00Yzk4LThmNjktOWVmNmM1YTMxM2I3IiwiZXhwIjoxNzQ4MTczNTQzLCJyb2xlIjoiVmlld2VyIn0.8vdTcfyj02wRI1n0r7sV4lUlbWGZC8cdZRVcmohaHhQ",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"role\": \"Editor\"\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://127.0.0.1:5000/api/events/14/permissions/6",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "5000",
+									"path": [
+										"api",
+										"events",
+										"14",
+										"permissions",
+										"6"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Version History",
+			"item": [
+				{
+					"name": "Owner",
+					"item": [
+						{
+							"name": "Get all versions of an event",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTc0ODE2NTQ1NiwianRpIjoiYzE2NjJhNzMtZTE5Yy00N2VkLWIyMDMtZjk4MThjM2EzNmY5IiwidHlwZSI6ImFjY2VzcyIsInN1YiI6IjEwIiwibmJmIjoxNzQ4MTY1NDU2LCJjc3JmIjoiNGYyOTJkZDktYjIwYi00ODBkLWEyYzMtMzIxMjY1NTZkYjUyIiwiZXhwIjoxNzQ4MTY5MDU2LCJyb2xlIjoiT3duZXIifQ.MQcs79bzhrWM051VmfFoZXqUCSSe4KSCqZG3fNtEsfE",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://127.0.0.1:5000/api/events/53/versions",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "5000",
+									"path": [
+										"api",
+										"events",
+										"53",
+										"versions"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get a specific version of an event",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTc0ODE2NTQ1NiwianRpIjoiYzE2NjJhNzMtZTE5Yy00N2VkLWIyMDMtZjk4MThjM2EzNmY5IiwidHlwZSI6ImFjY2VzcyIsInN1YiI6IjEwIiwibmJmIjoxNzQ4MTY1NDU2LCJjc3JmIjoiNGYyOTJkZDktYjIwYi00ODBkLWEyYzMtMzIxMjY1NTZkYjUyIiwiZXhwIjoxNzQ4MTY5MDU2LCJyb2xlIjoiT3duZXIifQ.MQcs79bzhrWM051VmfFoZXqUCSSe4KSCqZG3fNtEsfE",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://127.0.0.1:5000/api/events/53/history/1",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "5000",
+									"path": [
+										"api",
+										"events",
+										"53",
+										"history",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Rollback to a previous version",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTc0ODE2NTQ1NiwianRpIjoiYzE2NjJhNzMtZTE5Yy00N2VkLWIyMDMtZjk4MThjM2EzNmY5IiwidHlwZSI6ImFjY2VzcyIsInN1YiI6IjEwIiwibmJmIjoxNzQ4MTY1NDU2LCJjc3JmIjoiNGYyOTJkZDktYjIwYi00ODBkLWEyYzMtMzIxMjY1NTZkYjUyIiwiZXhwIjoxNzQ4MTY5MDU2LCJyb2xlIjoiT3duZXIifQ.MQcs79bzhrWM051VmfFoZXqUCSSe4KSCqZG3fNtEsfE",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://127.0.0.1:5000/api/events/53/rollback/3",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "5000",
+									"path": [
+										"api",
+										"events",
+										"53",
+										"rollback",
+										"3"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Editor",
+					"item": [
+						{
+							"name": "Get all versions of an event",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTc0ODE3NjIxNCwianRpIjoiNDRiOTUwN2EtOGUzNy00MTA0LWJjODAtMjg0ZWIxZGQwNDMyIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6IjExIiwibmJmIjoxNzQ4MTc2MjE0LCJjc3JmIjoiZGIzZDhmMWItZWUyNy00OTVlLTkyZDEtMmQ4MjQzZjA5ZWQzIiwiZXhwIjoxNzQ4MTc5ODE0LCJyb2xlIjoiRWRpdG9yIn0.KSb3Dh4VpOp4sBrLwgEJVqZVni_Cleqitp5Qu4h2jBU",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://127.0.0.1:5000/api/events/53/versions",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "5000",
+									"path": [
+										"api",
+										"events",
+										"53",
+										"versions"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get a specific version of an event",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTc0ODE3NjIxNCwianRpIjoiNDRiOTUwN2EtOGUzNy00MTA0LWJjODAtMjg0ZWIxZGQwNDMyIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6IjExIiwibmJmIjoxNzQ4MTc2MjE0LCJjc3JmIjoiZGIzZDhmMWItZWUyNy00OTVlLTkyZDEtMmQ4MjQzZjA5ZWQzIiwiZXhwIjoxNzQ4MTc5ODE0LCJyb2xlIjoiRWRpdG9yIn0.KSb3Dh4VpOp4sBrLwgEJVqZVni_Cleqitp5Qu4h2jBU",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://127.0.0.1:5000/api/events/53/history/1",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "5000",
+									"path": [
+										"api",
+										"events",
+										"53",
+										"history",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Rollback to a previous version",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTc0ODE3NjIxNCwianRpIjoiNDRiOTUwN2EtOGUzNy00MTA0LWJjODAtMjg0ZWIxZGQwNDMyIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6IjExIiwibmJmIjoxNzQ4MTc2MjE0LCJjc3JmIjoiZGIzZDhmMWItZWUyNy00OTVlLTkyZDEtMmQ4MjQzZjA5ZWQzIiwiZXhwIjoxNzQ4MTc5ODE0LCJyb2xlIjoiRWRpdG9yIn0.KSb3Dh4VpOp4sBrLwgEJVqZVni_Cleqitp5Qu4h2jBU",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://127.0.0.1:5000/api/events/53/rollback/3",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "5000",
+									"path": [
+										"api",
+										"events",
+										"53",
+										"rollback",
+										"3"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Viewer",
+					"item": [
+						{
+							"name": "Get all versions of an event",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTc0ODE3NjcwNywianRpIjoiYzFhNTI3NzAtYjc3My00NzIxLWI4NGEtYjBkZDFkMDRmOTc0IiwidHlwZSI6ImFjY2VzcyIsInN1YiI6IjEyIiwibmJmIjoxNzQ4MTc2NzA3LCJjc3JmIjoiYTlhOGE1YmMtMDFjZC00ZGNlLTkzNDUtNjkxYWVkMzkyMDY4IiwiZXhwIjoxNzQ4MTgwMzA3LCJyb2xlIjoiVmlld2VyIn0.FPNGZzwJw0K37TGcuuUyLs4Zgb7GVA9Sr7xDwunP4oE",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://127.0.0.1:5000/api/events/53/versions",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "5000",
+									"path": [
+										"api",
+										"events",
+										"53",
+										"versions"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get a specific version of an event",
+							"request": {
+								"method": "GET",
+								"header": []
+							},
+							"response": []
+						},
+						{
+							"name": "Rollback to a previous version",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTc0ODE3NjcwNywianRpIjoiYzFhNTI3NzAtYjc3My00NzIxLWI4NGEtYjBkZDFkMDRmOTc0IiwidHlwZSI6ImFjY2VzcyIsInN1YiI6IjEyIiwibmJmIjoxNzQ4MTc2NzA3LCJjc3JmIjoiYTlhOGE1YmMtMDFjZC00ZGNlLTkzNDUtNjkxYWVkMzkyMDY4IiwiZXhwIjoxNzQ4MTgwMzA3LCJyb2xlIjoiVmlld2VyIn0.FPNGZzwJw0K37TGcuuUyLs4Zgb7GVA9Sr7xDwunP4oE",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://127.0.0.1:5000/api/events/53/rollback/3",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "5000",
+									"path": [
+										"api",
+										"events",
+										"53",
+										"rollback",
+										"3"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Changelog & Diff",
+			"item": [
+				{
+					"name": "Owner",
+					"item": [
+						{
+							"name": "Get a chronological log of all changes to an event",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTc0ODE3NjM1OCwianRpIjoiMjYxMzNhZTctMWEyZi00YjBjLTk3NDMtYTk1OWZmODZkZWExIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6IjEwIiwibmJmIjoxNzQ4MTc2MzU4LCJjc3JmIjoiZjQ3ZjMxNmYtOGFlNC00NDFmLWJhYTMtZjMzMGYwNTM2MTNkIiwiZXhwIjoxNzQ4MTc5OTU4LCJyb2xlIjoiT3duZXIifQ.gyef-gYOttTLe5bNeXxfGdcaNop4BvJcURYsX_Tz3Ic",
+										"type": "text"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://127.0.0.1:5000/api/events/53/changelog",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "5000",
+									"path": [
+										"api",
+										"events",
+										"53",
+										"changelog"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get a diff between two versions",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTc0ODE3NjM1OCwianRpIjoiMjYxMzNhZTctMWEyZi00YjBjLTk3NDMtYTk1OWZmODZkZWExIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6IjEwIiwibmJmIjoxNzQ4MTc2MzU4LCJjc3JmIjoiZjQ3ZjMxNmYtOGFlNC00NDFmLWJhYTMtZjMzMGYwNTM2MTNkIiwiZXhwIjoxNzQ4MTc5OTU4LCJyb2xlIjoiT3duZXIifQ.gyef-gYOttTLe5bNeXxfGdcaNop4BvJcURYsX_Tz3Ic",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://127.0.0.1:5000/api/events/53/diff/18/19",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "5000",
+									"path": [
+										"api",
+										"events",
+										"53",
+										"diff",
+										"18",
+										"19"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Editor",
+					"item": [
+						{
+							"name": "Get a chronological log of all changes to an event",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTc0ODE3NjIxNCwianRpIjoiNDRiOTUwN2EtOGUzNy00MTA0LWJjODAtMjg0ZWIxZGQwNDMyIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6IjExIiwibmJmIjoxNzQ4MTc2MjE0LCJjc3JmIjoiZGIzZDhmMWItZWUyNy00OTVlLTkyZDEtMmQ4MjQzZjA5ZWQzIiwiZXhwIjoxNzQ4MTc5ODE0LCJyb2xlIjoiRWRpdG9yIn0.KSb3Dh4VpOp4sBrLwgEJVqZVni_Cleqitp5Qu4h2jBU",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://127.0.0.1:5000/api/events/53/changelog",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "5000",
+									"path": [
+										"api",
+										"events",
+										"53",
+										"changelog"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get a diff between two versions",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTc0ODE3NjIxNCwianRpIjoiNDRiOTUwN2EtOGUzNy00MTA0LWJjODAtMjg0ZWIxZGQwNDMyIiwidHlwZSI6ImFjY2VzcyIsInN1YiI6IjExIiwibmJmIjoxNzQ4MTc2MjE0LCJjc3JmIjoiZGIzZDhmMWItZWUyNy00OTVlLTkyZDEtMmQ4MjQzZjA5ZWQzIiwiZXhwIjoxNzQ4MTc5ODE0LCJyb2xlIjoiRWRpdG9yIn0.KSb3Dh4VpOp4sBrLwgEJVqZVni_Cleqitp5Qu4h2jBU",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://127.0.0.1:5000/api/events/53/diff/18/19",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "5000",
+									"path": [
+										"api",
+										"events",
+										"53",
+										"diff",
+										"18",
+										"19"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Viewer",
+					"item": [
+						{
+							"name": "Get a chronological log of all changes to an event",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTc0ODE3NjcwNywianRpIjoiYzFhNTI3NzAtYjc3My00NzIxLWI4NGEtYjBkZDFkMDRmOTc0IiwidHlwZSI6ImFjY2VzcyIsInN1YiI6IjEyIiwibmJmIjoxNzQ4MTc2NzA3LCJjc3JmIjoiYTlhOGE1YmMtMDFjZC00ZGNlLTkzNDUtNjkxYWVkMzkyMDY4IiwiZXhwIjoxNzQ4MTgwMzA3LCJyb2xlIjoiVmlld2VyIn0.FPNGZzwJw0K37TGcuuUyLs4Zgb7GVA9Sr7xDwunP4oE",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://127.0.0.1:5000/api/events/53/changelog",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "5000",
+									"path": [
+										"api",
+										"events",
+										"53",
+										"changelog"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get a diff between two versions",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmcmVzaCI6ZmFsc2UsImlhdCI6MTc0ODE3NjcwNywianRpIjoiYzFhNTI3NzAtYjc3My00NzIxLWI4NGEtYjBkZDFkMDRmOTc0IiwidHlwZSI6ImFjY2VzcyIsInN1YiI6IjEyIiwibmJmIjoxNzQ4MTc2NzA3LCJjc3JmIjoiYTlhOGE1YmMtMDFjZC00ZGNlLTkzNDUtNjkxYWVkMzkyMDY4IiwiZXhwIjoxNzQ4MTgwMzA3LCJyb2xlIjoiVmlld2VyIn0.FPNGZzwJw0K37TGcuuUyLs4Zgb7GVA9Sr7xDwunP4oE",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://127.0.0.1:5000/api/events/53/diff/18/19",
+									"protocol": "http",
+									"host": [
+										"127",
+										"0",
+										"0",
+										"1"
+									],
+									"port": "5000",
+									"path": [
+										"api",
+										"events",
+										"53",
+										"diff",
+										"18",
+										"19"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		}
+	]
+}

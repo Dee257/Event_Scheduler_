@@ -1,0 +1,367 @@
+openapi: 3.0.3
+info:
+  title: Event Scheduling API - Versioning and Real-time
+  version: 1.0.0
+  description: API for event versioning and real-time collaboration via WebSocket
+
+servers:
+  - url: http://localhost:5000
+  - url: /api/auth
+
+paths:
+  /register:
+    post:
+      summary: Register a new user
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - username
+                - email
+                - password
+                - role
+              properties:
+                username:
+                  type: string
+                email:
+                  type: string
+                  format: email
+                password:
+                  type: string
+                role:
+                  type: string
+                  enum: [Owner, Editor, Viewer]
+      responses:
+        "201":
+          description: User registered successfully with tokens
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  user:
+                    type: object
+                    properties:
+                      id:
+                        type: integer
+                      username:
+                        type: string
+                      email:
+                        type: string
+                      role:
+                        type: string
+                  access_token:
+                    type: string
+                  refresh_token:
+                    type: string
+        "400":
+          description: Missing required fields or invalid input
+        "409":
+          description: User already exists
+
+  /login:
+    post:
+      summary: User login
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - email
+                - password
+              properties:
+                email:
+                  type: string
+                  format: email
+                password:
+                  type: string
+      responses:
+        "200":
+          description: Login successful with tokens
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  user:
+                    type: object
+                    properties:
+                      id:
+                        type: integer
+                      username:
+                        type: string
+                      email:
+                        type: string
+                      role:
+                        type: string
+                  access_token:
+                    type: string
+                  refresh_token:
+                    type: string
+        "400":
+          description: Missing email or password
+        "401":
+          description: Invalid credentials
+
+  /refresh:
+    post:
+      summary: Refresh access token
+      security:
+        - bearerAuth: []
+      responses:
+        "200":
+          description: New access token
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  access_token:
+                    type: string
+        "401":
+          description: Unauthorized or invalid refresh token
+
+  /logout:
+    post:
+      summary: Logout user and revoke refresh token
+      security:
+        - bearerAuth: []
+      responses:
+        "200":
+          description: Logout successful
+        "400":
+          description: Logout failed
+
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+
+  /api/events/{event_id}/versions:
+    get:
+      summary: List all versions of an event
+      tags:
+        - Versioning
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: event_id
+          in: path
+          required: true
+          description: ID of the event to list versions for
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: List of event versions
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    version_id:
+                      type: integer
+                      example: 3
+                    version_number:
+                      type: integer
+                      example: 3
+                    title:
+                      type: string
+                      example: "Team Meeting"
+                    description:
+                      type: string
+                      example: "Discuss Q2 goals"
+                    start_time:
+                      type: string
+                      format: date-time
+                      example: "2025-05-25T09:00:00+05:30"
+                    end_time:
+                      type: string
+                      format: date-time
+                      example: "2025-05-25T10:00:00+05:30"
+                    location:
+                      type: string
+                      example: "Conference Room"
+                    is_recurring:
+                      type: boolean
+                      example: false
+                    recurrence_pattern:
+                      type: string
+                      nullable: true
+                      example: null
+                    modified_by:
+                      type: string
+                      example: "alice"
+                    created_at:
+                      type: string
+                      format: date-time
+                      example: "2025-05-24T14:23:55+05:30"
+        '403':
+          description: Permission denied
+        '404':
+          description: Event not found
+
+  /api/events/{event_id}/history/{version_id}:
+    get:
+      summary: Get a specific event version details
+      tags:
+        - Versioning
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: event_id
+          in: path
+          required: true
+          schema:
+            type: integer
+        - name: version_id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Event version details
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  version_id:
+                    type: integer
+                    example: 2
+                  version_number:
+                    type: integer
+                    example: 2
+                  title:
+                    type: string
+                    example: "Team Meeting"
+                  description:
+                    type: string
+                    example: "Discuss Q2 goals"
+                  start_time:
+                    type: string
+                    format: date-time
+                    example: "2025-05-25T09:00:00+05:30"
+                  end_time:
+                    type: string
+                    format: date-time
+                    example: "2025-05-25T10:00:00+05:30"
+                  location:
+                    type: string
+                    example: "Conference Room"
+                  is_recurring:
+                    type: boolean
+                    example: false
+                  recurrence_pattern:
+                    type: string
+                    nullable: true
+                    example: null
+                  modified_by:
+                    type: string
+                    example: "alice"
+                  created_at:
+                    type: string
+                    format: date-time
+                    example: "2025-05-24T14:23:55+05:30"
+        '403':
+          description: Permission denied
+        '404':
+          description: Event or version not found
+
+  /api/events/{event_id}/rollback/{version_id}:
+    post:
+      summary: Rollback an event to a specific version
+      tags:
+        - Versioning
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: event_id
+          in: path
+          required: true
+          schema:
+            type: integer
+        - name: version_id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Successfully rolled back event
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  msg:
+                    type: string
+                    example: "Rolled back to version 2"
+        '403':
+          description: Permission denied
+        '404':
+          description: Event or version not found
+
+# components:
+#   securitySchemes:
+#     bearerAuth:
+#       type: http
+#       scheme: bearer
+#       bearerFormat: JWT
+
+websocket:
+  description: |
+    WebSocket events for real-time collaboration and notifications.
+    Connect to the server via SocketIO for the following events:
+  events:
+    connect:
+      description: Client connected to the WebSocket server
+    disconnect:
+      description: Client disconnected
+    join_room:
+      description: Join a specific room
+      payload:
+        type: object
+        properties:
+          room:
+            type: string
+            example: "event_123_room"
+    leave_room:
+      description: Leave a specific room
+      payload:
+        type: object
+        properties:
+          room:
+            type: string
+            example: "event_123_room"
+    send_event_update:
+      description: Send an event update to a room
+      payload:
+        type: object
+        properties:
+          room:
+            type: string
+            example: "event_123_room"
+          event:
+            type: object
+            description: Event update payload (event fields)
+            example:
+              id: 123
+              title: "Updated Meeting"
+              description: "Updated description"
+              start_time: "2025-05-25T09:30:00+05:30"
+              end_time: "2025-05-25T10:30:00+05:30"
+              location: "Room B"
+              is_recurring: false
+              recurrence_pattern: null
+
